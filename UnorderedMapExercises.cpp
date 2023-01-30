@@ -232,8 +232,8 @@ int memoizedLongestPalindromeLength(LengthMemo& memo, const std::string& str, in
     // for it in the memoization table already. We won't calculate anything
     // new in this case. So, we also won't store anything new in the table in
     // this case, only return what's already stored at this key in the map.
-
-    return -1337; // Hint: You need to change this!
+    auto i = memo[pairKey];
+    return memo[pairKey];
     // ====================================================================
 
   }
@@ -340,7 +340,10 @@ int memoizedLongestPalindromeLength(LengthMemo& memo, const std::string& str, in
   // =======================================================================
   // EXERCISE 3 - PART B - YOUR CODE HERE!
   //
-  return -1337; // Hint: You need to change this!
+  const IntPair leftPairKey = std::make_pair(leftLimit, rightLimit-1);
+  const IntPair RightPairKey = std::make_pair(leftLimit+1, rightLimit);
+  memo[pairKey] = greaterResult;
+  return greaterResult; // Hint: You need to change this!
   // =======================================================================
 }
 
