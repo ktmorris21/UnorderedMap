@@ -57,6 +57,20 @@ StringIntMap makeWordCounts(const StringVec& words) {
   // EXERCISE 1 WORKSPACE: YOUR CODE HERE
   // =================================================
 
+  // Loop through word vector
+  // for each word, test if key (key=word) exists in map
+  // if no, create the key and assign value of one
+  // if yes, value = value+1
+  for (auto i : words) {
+    int doesKeyExist = wordcount_map.count(i);
+    if (!doesKeyExist) {
+      wordcount_map[i] = 1;
+    }
+    else {
+      wordcount_map[i]++;   
+    }
+  }
+
   return wordcount_map;
 }
 
